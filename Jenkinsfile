@@ -1,5 +1,6 @@
 node {
 	stage ('Compile') {
+		checkout scm
 		sh "${JAVA_HOME}/bin/javac  HelloWorld.java"
 	}
       
