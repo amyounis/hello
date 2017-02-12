@@ -6,7 +6,7 @@ node {
 			//step 1 checkout master from SCM 
 			checkout scm
 			//step 2 compile java
-			sh "javac  HelloWorld.java"
+			sh "${JAVA_HOME}/bin/javac  HelloWorld.java"
 		
 	}
       
