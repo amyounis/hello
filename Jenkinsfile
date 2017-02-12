@@ -1,4 +1,6 @@
 node {
+	
+   stages {
 	// stage 1 Compilation
 	stage ('Compile') {
 		
@@ -7,7 +9,7 @@ node {
 			checkout scm
 			//step 2 compile java
 			sh "javac  HelloWorld.java"
-		      }
+		}
 	}
       
 	// stage 2 Testing
@@ -16,7 +18,7 @@ node {
 		steps{
 			//step 1 run HelloWorld.class
 			sh "${JAVA_HOME}/bin/java HelloWorld"
-		     }
+		}
 	}
 	 
 	// stage 3 release artifact on repository
@@ -27,7 +29,7 @@ node {
 			sh "echo done"
 		}
 	}
-
+   }
 }
 
 
