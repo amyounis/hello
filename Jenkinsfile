@@ -9,7 +9,7 @@ node {
 //		}
 
 		//echo ${params.PERSON}
-		println user
+		echo user
 		
 			//step 1 checkout master from SCM 
 			//checkout scm
