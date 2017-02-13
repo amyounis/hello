@@ -1,33 +1,10 @@
 pipeline {
-  agent none
-  stages {
-    stage('Compile') {
-      steps {
-        parallel(
-          "Compile": {
-            sh '${JAVA_HOME}/bin/javac  HelloWorld.java'
-            sh 'echo new step'
-            
-          },
-          "newstage": {
-            sh 'echo "where is this stage"'
-            
-          }
-        )
-      }
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+        }
     }
-    stage('Test') {
-      steps {
-        sh '${JAVA_HOME}/bin/java HelloWorld'
-      }
-    }
-    stage('Release') {
-      steps {
-        sh 'echo Release'
-      }
-    }
-  }
-  environment {
-    JAVA_HOME = '/usr/local/jdk1.8.0_121'
-  }
 }
