@@ -1,5 +1,5 @@
 node {
-	 parameters {choice(choices: 'greeting\nsilence', name: 'choise')}	
+	 def input =  input message: 'chose?', parameters: [choice(choices: 'greeting\nsilence', name: 'choise')]	
 
 	stage ('Compile') {
         
@@ -9,30 +9,18 @@ node {
 //		}
 
 		//echo user
-		echo "compilation"
+		echo input
 		
-			//step 1 checkout master from SCM 
-			//checkout scm
-			//step 2 compile java
-			//sh "${JAVA_HOME}/bin/javac  HelloWorld.java"
 	}
       
 	stage ('Test') {
-		when {
-                expression { params.choise == 'greeting' }
-            }
-        
-        echo "Test"
-		
-			//step 1 run HelloWorld.class
-		//	sh "${JAVA_HOME}/bin/java HelloWorld"
+		//	when params.choise == 'greeting'
+               		echo "Test"
 		
 	}
 	 
 	stage ('Release Build') {
 			echo "Release"
-			//step 1
-		//	sh "echo done"
 
 	}
 }
