@@ -1,5 +1,5 @@
 node {
-	 def input =  input message: 'chose?', parameters: [choice(choices: 'greeting\nsilence', name: 'choise')]	
+	 def input =  input message: 'chose?', parameters: [choice(choices: 'abdo\mohammed', name: 'choise')]	
 
 	stage ('Compile') {
         
@@ -9,18 +9,19 @@ node {
 //		}
 
 		//echo user
-		echo input
+		echo "hello"
 		
 	}
       
 	stage ('Test') {
-		//	when params.choise == 'greeting'
-               		echo "Test"
+			when input == 'abdo'
+               		echo input
 		
 	}
 	 
 	stage ('Release Build') {
-			echo "Release"
+			when input == 'mohammed'
+			echo "chose abdo"
 
 	}
 }
