@@ -14,13 +14,14 @@ node {
 	}
       
 	stage ('Test') {
-			when { expression { input == 'abdo' } }
-			echo input
+		if input == 'abdo' {
+			do echo "abdo is chosen"
+			else echo "abdo is not chosen" 
+			}
 		
 	}
-	 
+	
 	stage ('Release Build') {
-			when { expression { input == 'mohammed' } }
 			echo "chose abdo"
 
 	}
