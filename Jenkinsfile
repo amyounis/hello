@@ -9,7 +9,7 @@ node {
             		      parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')]
 //		}
 
-		print $params.PERSON
+		print ${params.PERSON}
 		
 			//step 1 checkout master from SCM 
 			//checkout scm
