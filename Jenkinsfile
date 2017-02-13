@@ -6,10 +6,10 @@ node {
         
      //   	timeout(time: 20, unit: 'SECONDS') {
         		input message: 'who are you ?',
-            		      parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')]
+            		      parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins')]
 //		}
 
-		print ${params.PERSON}
+		echo ${params.PERSON}
 		
 			//step 1 checkout master from SCM 
 			//checkout scm
