@@ -7,6 +7,7 @@ timeout(time: 15, unit: 'SECONDS') {
                             defaultValue: false,
                             description: 'Ticking this box will do a release',
                             name: 'Release']]
+    }
 
     stages {
         stage('Example') {
