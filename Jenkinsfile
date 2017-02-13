@@ -5,8 +5,8 @@ node {
         
         
         	timeout(time: 15, unit: 'SECONDS') {
-        		input 	message: 'Do you want to release this build?',
-            			parameters: [[$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Ticking this box will do a release', name: 'Release']]
+        		def userinput = input message: 'who are you ?',
+            				      parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')]
 		}
 
 		echo "compilation"
