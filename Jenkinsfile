@@ -14,7 +14,7 @@ node {
 	}
       
 	stage ('Test') {
-		if input == 'abdo' {
+		if (input == 'abdo') {
 			do echo "abdo is chosen"
 			else echo "abdo is not chosen" 
 			}
