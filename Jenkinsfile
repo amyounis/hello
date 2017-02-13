@@ -1,15 +1,15 @@
 node {
-		
-	// stage 1 Compilation
+	 parameters {choice(choices: 'greeting\nsilence', name: 'choise')}	
+
 	stage ('Compile') {
         
-        
+		         
      //   	timeout(time: 20, unit: 'SECONDS') {
-        		def user = input message: 'who are you ?', parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins')]
+       // 		def user = input message: 'who are you ?', parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins')]
 //		}
 
-		//echo ${params.PERSON}
-		echo user
+		//echo user
+		echo "compilation"
 		
 			//step 1 checkout master from SCM 
 			//checkout scm
@@ -17,8 +17,10 @@ node {
 			//sh "${JAVA_HOME}/bin/javac  HelloWorld.java"
 	}
       
-	// stage 2 Testing
 	stage ('Test') {
+		when {
+                expression { params.choise == 'greeting' }
+            }
         
         echo "Test"
 		
@@ -27,7 +29,6 @@ node {
 		
 	}
 	 
-	// stage 3 release artifact on repository
 	stage ('Release Build') {
 			echo "Release"
 			//step 1
