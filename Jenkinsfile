@@ -4,12 +4,12 @@ node {
 	stage ('Compile') {
         
         
-        	timeout(time: 15, unit: 'SECONDS') {
+        	timeout(time: 20, unit: 'SECONDS') {
         		def userinput = input message: 'who are you ?',
             				      parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')]
 		}
 
-		echo "compilation"
+		echo "hello ${params.PERSON}"
 		
 			//step 1 checkout master from SCM 
 			//checkout scm
