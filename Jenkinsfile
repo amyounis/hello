@@ -5,11 +5,11 @@ node {
         
         
      //   	timeout(time: 20, unit: 'SECONDS') {
-        		input message: 'who are you ?',
-            		      parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins')]
+        		def user = input message: 'who are you ?', parameters: [string(name: 'PERSON', defaultValue: 'Mr Jenkins')]
 //		}
 
-		echo ${params.PERSON}
+		//echo ${params.PERSON}
+		println user
 		
 			//step 1 checkout master from SCM 
 			//checkout scm
